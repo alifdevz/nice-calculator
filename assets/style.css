@@ -15,3 +15,7 @@ body {
     margin: 0 auto;
     text-align: right;
 }
+
+.flex-container-row {
+    display: flex;
+}
