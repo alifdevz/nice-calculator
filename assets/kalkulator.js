@@ -17,13 +17,15 @@ console.log("Panjang nilai myArray adalah " + myArray.length + ".");
 // Object (sama seperti dictionary pada Python)
 let object = {key1: "value1", key2: "value2", key3: "value3"}
 let user = {
-    firstName: "Budi",
-    lastName: "Pandai",  
+    name: {
+        firstName: "Budi",
+        lastName: "Pandai"
+    },
     age: 20, 
     isMuggle: false, 
     stuff: ["Mug", "Flying Car", "Owl"]
 };
 
 // Akses isi (properti) object
-console.log("Halo, nama saya " + user.firstName + " " + user.lastName);
+console.log("Halo, nama saya " + user.name.first + " " + user.name.last);
 console.log("Umur saya " + user.age + " tahun");
