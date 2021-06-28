@@ -6,7 +6,7 @@ const calculator = {
 }
 
 function updateDisplay() {
-    document.querySelector("#displayNumber").innerText = calculator.displayNumber;
+    document.querySelector("#display-number").innerText = calculator.displayNumber;
 }
 
 function clearCalculator() {
