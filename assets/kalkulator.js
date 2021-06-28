@@ -15,3 +15,17 @@ function clearCalculator() {
     calculator.firstNumber = null;
     calculator.waitingForSecondNumber = false;
 }
+
+function inputDigit(digit) {
+    calculator.displayNumber += digit;
+}
+
+const buttons = document.querySelectorAll(".button");
+for (let button of buttons) {
+    button.addEventListener('click', function(event) {
+        // mendapatkan objek element yang diklik
+        const target = event.target;
+        inputDigit(target.innerText);
+        updateDisplay();
+    });
+}
