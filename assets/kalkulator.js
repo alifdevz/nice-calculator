@@ -24,6 +24,42 @@ function inputDigit(digit) {
     }
 }
 
+function inverseNumber() {
+    if (calculator.displayNumber === '0') {
+        return;
+    }
+    calculator.displayNumber = calculator.displayNumber * -1;
+}
+
+function handleOperator(operator) {
+    if (!calculator.waitingForSecondNumber) {
+        calculator.operator = operator;
+        calculator.waitingForSecondNumber = true;
+        calculator.firstNumber = calculator.displayNumber;
+
+        // mengatur ulang display number supaya tombol selanjutnya dimulai dari angka pertama lagi
+        calculator.displayNumber = '0';
+    } else {
+        alert('Operator sudah ditetapkan!');
+    }
+}
+
+function performCalculation() {
+    if (calculator.firstNumber == null || calculator.operator == null) {
+        alert("Anda belum menetapkan operator!");
+        return;
+    }
+
+    let result = 0;
+    if (calculator.operator === '+') {
+        result = parseInt(calculator.firstNumber) + parseInt(calculator.displayNumber);
+    } else if (calculator.operator === '-') {
+        result = parseInt(calculator.firstNumber) - parseInt(calculator.displayNumber);
+    }
+
+    calculator.displayNumber = result;
+}
+
 const buttons = document.querySelectorAll(".button");
 for (let button of buttons) {
     // Event handler
@@ -43,14 +79,14 @@ for (let button of buttons) {
             return;
         }
 
-        if (target.classList.contains('equals')) {
-            performCalculation();
-            updateDisplay();
+        if (target.classList.contains('operator')) {
+            handleOperator(target.innerText);
             return;
         }
 
-        if (target.classList.contains('operator')) {
-            handleOperator(target.innerText);
+        if (target.classList.contains('equals')) {
+            performCalculation();
+            updateDisplay();
             return;
         }
 
