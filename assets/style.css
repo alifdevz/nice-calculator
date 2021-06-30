@@ -9,7 +9,7 @@ body {
 .flex-container-column {
     display: flex;
     flex-direction: column;
-  
+
     /* properti pendukung */
     max-width: 800px;
     margin: 0 auto;
