@@ -30,4 +30,5 @@ function renderHistory() {
     }
 }
 
+// Call render history when the calculator is first opened.
 renderHistory();
